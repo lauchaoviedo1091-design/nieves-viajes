@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nieves Viajes</title>
+<meta name="description" content="Gestión de viajes de Nieves Travel (acceso privado).">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://*.supabase.co; connect-src 'self' data: https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#F7F5F0">
+<meta name="color-scheme" content="light">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Nieves Viajes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/libre-baskerville-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/app.css?v=2.0.0">
+</head>
+<body>
+<div id="loading" class="screen">
+  <div class="splash" role="status"><img class="emblem" alt="Logo de Nieves Travel" src="img/logo-192.png"><div class="spinner" aria-hidden="true"></div><p>Cargando los datos…</p></div>
+</div>
+
+<div id="login" class="screen" hidden>
+  <form id="login-form" class="login-card" novalidate>
+    <div class="login-brand"><img class="emblem" alt="Logo de Nieves Travel" src="img/logo-192.png"><b>Nieves Viajes</b><span class="muted">Gestión de viajes</span></div>
+    <label class="field"><span>Mail</span><input type="email" id="login-email" autocomplete="username" inputmode="email" autocapitalize="off" spellcheck="false"></label>
+    <label class="field"><span>Contraseña</span><input type="password" id="login-pass" autocomplete="current-password"></label>
+    <label class="check"><input type="checkbox" id="login-show"> Mostrar contraseña</label>
+    <p class="login-err" id="login-err" role="alert"></p>
+    <button class="btn" id="login-btn" type="submit">Entrar</button>
+    <p class="login-help">Solo pueden entrar Nieves y Laucha. Si te olvidaste la contraseña, pedile a Laucha que te ponga una nueva.</p>
+  </form>
+</div>
+
+<div id="fatal" class="screen" hidden>
+  <div class="login-card">
+    <div class="login-brand"><img class="emblem" alt="Logo de Nieves Travel" src="img/logo-192.png"><b>Nieves Viajes</b></div>
+    <p class="login-err" id="fatal-msg" role="alert"></p>
+    <button class="btn" data-act="reload">Probar de nuevo</button>
+  </div>
+</div>
+
+<div class="shell" hidden>
+  <aside class="side" aria-label="Menú principal">
+    <div class="brand"><img class="emblem" alt="Logo de Nieves Travel" src="img/logo-192.png"><div><b>Nieves Viajes</b><span class="brand-sub">Gestión de viajes</span></div></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="side-foot">
+      <p class="who-line">Entraste como <b id="who-side"></b></p>
+      <button class="btn btn-ghost btn-sm" data-act="logout">Salir</button>
+    </div>
+  </aside>
+  <div class="main-col">
+    <header class="topbar"><img class="emblem" alt="Logo de Nieves Travel" src="img/logo-192.png"><b>Nieves Viajes</b><span class="who" id="who"></span></header>
+    <div class="net" id="net" role="status" hidden>Sin conexión a internet. Lo que ves puede no estar al día y no se puede guardar nada hasta que vuelva.</div>
+    <main class="view" id="view"></main>
+  </div>
+</div>
+<nav class="bottomnav" id="bottomnav" aria-label="Menú" hidden></nav>
+<div id="modal"></div>
+<div id="toast" aria-live="polite"></div>
+<div id="print-root"></div>
+
+<script src="vendor/supabase.js"></script>
+<script src="js/config.js?v=2.0.0"></script>
+<script src="js/app.js?v=2.0.0"></script>
+</body>
+</html>
